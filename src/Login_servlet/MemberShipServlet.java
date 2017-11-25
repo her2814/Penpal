@@ -14,13 +14,14 @@ import javax.swing.JOptionPane;
 
 import com.oreilly.servlet.MultipartRequest;
 
-import Scarch_dao.FriendDao;
 import Scarch_dao.UserDao;
 import Scarch_vo.User;
 
 
 @WebServlet("/MemberShip" )
 public class MemberShipServlet extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,8 +40,7 @@ public class MemberShipServlet extends HttpServlet {
 		
 		@SuppressWarnings("deprecation")
 		String path = request.getRealPath("/Photo");
-		System.out.println("path:"+ path);
-		PrintWriter out = response.getWriter();		
+			
 		MultipartRequest multi = new MultipartRequest(request, path);
 		ServletContext sc = this.getServletContext();
 		
@@ -56,29 +56,33 @@ public class MemberShipServlet extends HttpServlet {
 		String religion = multi.getParameter("religion");
 		String job = multi.getParameter("job");
 		String email = multi.getParameter("email");
-		String photo = multi.getParameter("photo");
+		String question = multi.getParameter("question");
+		String answer = multi.getParameter("answer");
+	
 		
-		String user[] = {id,password,name,age,hobby,nationality,message,address,language,religion,job,email};
+		String user[] = {id,name,hobby,nationality,message,address,language,religion,job,answer};
 		for(int i = 0; i < user.length; i++) {
 			user[i] = new String(user[i].getBytes("8859_1"), "utf-8");
-			System.out.println(user[i]);
 		}
 
 
 		User users = new User()
 		.setId(user[0])
-		.setPassword(user[1])
-		.setName(user[2])
-		.setAge(Integer.parseInt(user[3]))
-		.setHobby(user[4])
-		.setNationality(user[5])
-		.setMessage(user[6])
-		.setAddress(user[7])
-		.setLanguage(user[8])
-		.setReligion(user[9])
-		.setJob(user[10])
-		.setEmail(user[11])
+		.setPassword(password)
+		.setName(user[1])
+		.setAge(Integer.parseInt(age))
+		.setHobby(user[2])
+		.setNationality(user[3])
+		.setMessage(user[4])
+		.setAddress(user[5])
+		.setLanguage(user[6])
+		.setReligion(user[7])
+		.setJob(user[8])
+		.setEmail(email)
+		.setQuestion(Integer.parseInt(question))
+		.setAnswer(user[9])
 		.setPhoto(multi.getFilesystemName("photo"));
+		
 		UserDao userDao = (UserDao)sc.getAttribute("userDao");
 		
 		
@@ -98,6 +102,7 @@ public class MemberShipServlet extends HttpServlet {
 		   str += "self.close();";   // 창닫기
 		    str += "</script>";
 		   out1.print(str);
+
 	}
 
 }

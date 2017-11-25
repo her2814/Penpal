@@ -27,7 +27,6 @@ public class MyPageservlet extends HttpServlet {
 try {
 			
 			request.setCharacterEncoding("UTF-8");
-			String id;
 			
 			ServletContext sc = this.getServletContext();
 			UserDao userDao = (UserDao)sc.getAttribute("userDao");

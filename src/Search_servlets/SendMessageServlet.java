@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
-import Scarch_dao.FriendDao;
+
 import Scarch_dao.MailDao;
-import Scarch_dao.UserDao;
+
 import Scarch_vo.Mail;
 import Scarch_vo.User;
 

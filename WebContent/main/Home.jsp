@@ -66,7 +66,7 @@ opacity: 0.7;
 
 <script> 
 
-var img = ["Photo/main.jpg","Photo/mug_obj_201603080130343734.jpg","Photo/8.jpg"];
+var img = ["Photo/main.jpg","Photo/mug_obj_201603080130343734.jpg","Photo/aqws.jpg"];
 
 var sp = document.getElementById("imgarea");
 

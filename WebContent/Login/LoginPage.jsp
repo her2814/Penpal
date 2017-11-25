@@ -12,9 +12,7 @@ a {
     <head>
             <title>로그인</title>
              <link rel = "stylesheet" type = "text/css" href = "./Login/style.css">
-             <script language="javascript">
-
-	</script>
+          
     </head>
     <body>
         <form class="form-4" action="Login" method="post">
@@ -27,9 +25,9 @@ a {
             <p>
                 <input type="password" name='password' placeholder="Password" required> 
             </p><div align="center">
-			<input type="button" value="회 원 가 입 " onclick='window.open("MemberShip","회원가입","width=500,height=900,scrollbar=no,toolbar=no,directories=no,noresize")'
+			<input type="button" value="회 원 가 입 " onclick='window.open("MemberShip","회원가입","width=470,height=1050,scrollbar=no,toolbar=no,directories=no,noresize")'
 					style="border: 0; outline: 0; background-color: #FFFFFF; width: 45%">
-			<input type="button" value="ID/패스워드 찾기 " onclick='window.open("MemberShip","회원가입","width=400,height900,scrollbar=no,toolbar=no,directories=no,noresize")'
+			<input type="button" value="ID/패스워드 찾기 " onclick="location.href='./finduser'"
 					style="border: 0; outline: 0; background-color: #FFFFFF;  width: 45%"> </div>
             <p>
                 <input type="submit" name="submit" value="Continue">

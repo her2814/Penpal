@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Scarch_dao.FriendDao;
 import Scarch_dao.UserDao;
-import Scarch_vo.User;
+
 
 
 @WebServlet("/searchDetail")

@@ -14,7 +14,9 @@ import Board_dao.BoardDao;
 import Scarch_dao.FriendDao;
 import Scarch_dao.MailDao;
 import Scarch_dao.UserDao;
-import Scarch_vo.Mail;
+
+
+
 
 @WebListener
 public class ContextLoaderListener implements ServletContextListener {

@@ -13,12 +13,14 @@ import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import Scarch_dao.FriendDao;
-import Scarch_dao.UserDao;
+
 import Scarch_vo.Friend;
 import Scarch_vo.User;
 
 @WebServlet("/addfriend")
 public class AddFriendServlet extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +28,7 @@ public class AddFriendServlet extends HttpServlet {
 			
 			
 			ServletContext sc = this.getServletContext();
-			UserDao userDao = (UserDao)sc.getAttribute("userDao");
+	
 			FriendDao friendDao = (FriendDao) sc.getAttribute("friendDao");		
 
 			HttpSession session = request.getSession();

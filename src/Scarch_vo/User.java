@@ -15,6 +15,8 @@ public class User {
 	private String job;				// 직업
 	private String admin_flag; 		// 관리자 판단
 	private String email; 			// 이메일
+	private int question; 			// 비밀번호 찾기 질문
+	private String answer;			// 비밀번호 찾기 답
 	private String suspension;		// 정지
 	private String photo; 			// 사진
 		
@@ -108,6 +110,21 @@ public class User {
 	}
 	public User setEmail(String email) {
 		this.email = email;
+		return this;
+	}
+
+	public int getQuestion() {
+		return question;
+	}
+	public User setQuestion(int question) {
+		this.question = question;
+		return this;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public User setAnswer(String answer) {
+		this.answer = answer;
 		return this;
 	}
 	public String getSuspension() {

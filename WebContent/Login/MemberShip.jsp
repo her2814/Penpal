@@ -5,6 +5,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
   "http://www.w3.org/TR/html4/loose.dtd"> 
 <html>
+	<script type="text/javascript"> 
+	function validatePwd() {
+		invalid =" ";
+		minlength=8;
+		pd1 = document.name.password.value;
+		pd2 = document.name.password1.value;
+		
+		if(pd1==""||pd2=="") {
+			alert("암호를 두번 입력하세요.");
+			return false;
+		}
+		if((document.name.password.value.length < minlength) || (document.name.password1.value.length < minlength)) {
+			alert("패스워드를 8자리 이상 입력하세요.");
+			return false;
+		}
+		if((document.name.password.value.indexOf(invalid)>-1) || (document.name.password1.value.indexOf(invalid)>-1)) {
+			alert("공백은 입력할수 없습니다.");
+			return false;
+		} else {
+			if(pd1!=pd2) {
+				alert("입력하신 암호가 다릅니다.");
+				return false;
+			}
+		}
+	}
+	
+	function onlyNumber(event){
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+			return;
+		else
+			return false;
+	}
+	function removeChar(event) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+			return;
+		else
+			event.target.value = event.target.value.replace(/[^0-9]/g, "");
+	}
+
+	
+	
+	</script>
 	<style>
 	input[type=text]::-ms-clear{
 	}
@@ -23,6 +69,7 @@
     padding-bottom: 20px;
 }
 .form-4 input[type=text],
+.form-4 input[type=password],
 .form-4 select {
     /* Size and position */
     width: 70%;
@@ -124,21 +171,23 @@
 }
 	
 	</style>
+
+
+	
 <head>
 <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
 <title>Insert title here</title>
 </head>
 </head>
-<body>
-
-				
-				<form class="form-4" action="MemberShip" method="post" enctype="multipart/form-data" >
-					<div align="center"><h2>회원 가입</h2></div>
+<body>			
+				<form class="form-4" action="MemberShip" method="post" enctype="multipart/form-data" name=name onSubmit='return validatePwd()'>
+					<div align="center" style="height: 25px"><h3>회원 가입<h3></div>
 				<div align="right"> 
 					<font> 아&nbsp&nbsp&nbsp이&nbsp&nbsp&nbsp디 </font>   <input type="text" name='id' required ><br>
-					<font>  비&nbsp밀&nbsp번&nbsp호 </font>  <input type="text" name="password" required ><br>
+					<font>  비&nbsp&nbsp밀&nbsp&nbsp번&nbsp&nbsp호 </font>  <input type="password" name="password" required ><br>
+					<font>  비밀번호 확인  </font>  <input type="password" name="password1" required ><br>
 					<font>  이 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp름 </font>  <input type="text" name="name" required><br>
-					<font>  나 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이 </font>  <input type="text" name="age" required ><br>
+					<font>  나 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이 </font>  <input type="text" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' name="age" required ><br>
 					<font>  취 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp미 </font>
 					<select style="width: 295px" name="hobby" required>
 					<option value="취미" selected disabled hidden>-취미-</option>
@@ -161,6 +210,15 @@
 					<font> 종 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp교</font>  <input type="text" name="religion" required ><br>
 					<font> 직 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp업</font>  <input type="text" name="job"><br>
 					<font> 이&nbsp&nbsp&nbsp메&nbsp&nbsp&nbsp일</font>  <input type="text" name="email"><br>
+					<font> 찾기  질문</font>
+					<select style="width: 295px" name="question" required >
+					<option selected disabled hidden>-비밀번호 찾기용 질문-</option>
+					<option value=1>본인이 태어난 곳은 ?</option>
+					<option value=2>제 보몰 1호</option>
+					<option value=3>졸업한 초등학교</option>
+					<option value=4>부모님 성함은 ? </option>
+					</select><br>	
+					<font> 질문 답  </font>  <input type="text" name="answer" required><br>
 					 <div align="center"> 
 					<font>프&nbsp로&nbsp필&nbsp사&nbsp진</font>  </div> 
 					<input type="file" name="photo" style="width: 45%" required ><br><br>  
